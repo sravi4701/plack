@@ -18,8 +18,7 @@
 				<hr>
 				<p>Register for free and get access to amazing framework and
 					beautiful components</p>
-				<a href="Post.jsp" class="btn btn-mdb btn-stc"
-					rel="nofollow">Post
+				<a href="Post.jsp" class="btn btn-mdb btn-stc" rel="nofollow">Post
 					New Update <i class="fa fa-download right"></i>
 				</a> <a target="_blank" href="" class="btn btn-unique btn-ptc"
 					rel="nofollow" data-toggle="modal" data-target="#modalEDForm">Edit
@@ -63,47 +62,56 @@
 Connection cn = GetConnection.getCn();
   try{
 	
-	String sql = "select * from dashboard join user on dashboard.useremail=user.useremail where dashboard.useremail=?;";
+	String sql = "select * from dashboard join user on dashboard.useremail=user.useremail where dashboard.useremail=?";
 	PreparedStatement ps = cn.prepareStatement(sql);
 	ps.setString(1,currentUser);
     
 	ResultSet rs = ps.executeQuery();
 	if(rs.next()) {
 		
+			String username = rs.getString(10);
 			String email = rs.getString(1);
-			String furl = rs.getString(3);
-			String quote = rs.getString(4);
-			String username = rs.getString(6);
-			String phone = rs.getString(8);
-
+			String dob = rs.getString(2);
+			String college = rs.getString(3);
+			String furl = rs.getString(4);
+			String turl = rs.getString(5);
+			String bio = rs.getString(6);
+			String quote = rs.getString(7);
 %>
 
 
 					<ul class="list-group">
-						<li class="list-group-item justify-content-between">User Name
+						<li class="list-group-item justify-content-between">Name : 
 							&nbsp;&nbsp;&nbsp; &nbsp; -:
 							<h5 style="color: #2BBBAD; margin-right: 300px;"><%=username %></h5>
 						</li>
 					</ul>
 					<br>
 					<ul class="list-group">
-						<li class="list-group-item justify-content-between">Your
-							Email &nbsp;&nbsp;&nbsp; &nbsp; -:
+						<li class="list-group-item justify-content-between"> Email:
+							 &nbsp;&nbsp;&nbsp; &nbsp; -:
 							<h4 style="color: #2BBBAD; margin-right: 290px;"><%=email %></h4>
 
 						</li>
 					</ul>
 					<br>
 					<ul class="list-group">
-						<li class="list-group-item justify-content-between">your Name
+						<li class="list-group-item justify-content-between">Date Of Birth :
 							&nbsp;&nbsp;&nbsp; &nbsp; -:
-							<h4 style="color: #2BBBAD; margin-right: 290px;"><%=quote %></h4>
+							<h4 style="color: #2BBBAD; margin-right: 290px;"><%=dob %></h4>
+
+						</li>
+					</ul>
+					<ul class="list-group">
+						<li class="list-group-item justify-content-between">College
+							&nbsp;&nbsp;&nbsp; &nbsp; -:
+							<h4 style="color: #2BBBAD; margin-right: 290px;"><%=college %></h4>
 
 						</li>
 					</ul>
 					<br>
 					<ul class="list-group">
-						<li class="list-group-item justify-content-between">Profile
+						<li class="list-group-item justify-content-between">Facebook :
 							&nbsp;&nbsp;&nbsp; &nbsp; -:
 							<h4 style="color: #2BBBAD; margin-right: 290px;"><%=furl %></h4>
 
@@ -112,17 +120,25 @@ Connection cn = GetConnection.getCn();
 
 					<br>
 					<ul class="list-group">
-						<li class="list-group-item justify-content-between">Mobile
-							No. &nbsp;&nbsp;&nbsp; &nbsp; -:
-							<h4 style="color: #2BBBAD; margin-right: 290px;"><%=phone %></h4>
-
+						<li class="list-group-item justify-content-between">Twitter :
+							&nbsp;&nbsp;&nbsp; &nbsp; -:
+							<h4 style="color: #2BBBAD; margin-right: 290px;"><%=turl %></h4>
 						</li>
 					</ul>
-
-
-
-
-
+					<br>
+					<ul class="list-group">
+						<li class="list-group-item justify-content-between">Bio :
+							&nbsp;&nbsp;&nbsp; &nbsp; -:
+							<h4 style="color: #2BBBAD; margin-right: 290px;"><%=bio %></h4>
+						</li>
+					</ul>
+					<br>
+					<ul class="list-group">
+						<li class="list-group-item justify-content-between">Favourite Quote :
+							&nbsp;&nbsp;&nbsp; &nbsp; -:
+							<h4 style="color: #2BBBAD; margin-right: 290px;"><%=quote %></h4>
+						</li>
+					</ul>
 					<%
 			}
 			else{
@@ -180,29 +196,40 @@ Connection cn = GetConnection.getCn();
 					<!--Panel 17-->
 					<div class="tab-pane fade in show active" id="panel17"
 						role="tabpanel">
-						<form action="AddDetail" method="POST">
-							<div class="modal-body">
-
-
-
+						<div class="modal-body">
+							<form action="AddDetail" method="POST">
 								<div class="md-form form-sm">
-
-									<input type="text" id="form14" class="form-control" name="furl">
-									<label for="form14">College</label>
+									<input type="text" id="form1" class="form-control" name="dob" placeholder="dd/mm/yyyy">
+									<label for="form1">DOB</label>
 								</div>
 								<div class="md-form form-sm">
-
-									<input type="text" id="form14" class="form-control"
-										name="quote"> <label for="form14">Add quote</label>
+									<input type="text" id="form6" class="form-control" name="college">
+									<label for="form6">College</label>
+								</div>
+								<div class="md-form form-sm">
+									<input type="text" id="form2" class="form-control" name="furl">
+									<label for="form2">Facebook URL</label>
+								</div>
+								<div class="md-form form-sm">
+									<input type="text" id="form3" class="form-control" name="turl">
+									<label for="form3">Twitter URL</label>
+								</div>
+								<div class="md-form form-sm">
+									<input type="text" id="form4" class="form-control"
+										name="bio"> <label for="form4">Bio</label>
+								</div>
+								<div class="md-form form-sm">
+									<input type="text" id="form5" class="form-control"
+										name="quote"> <label for="form5">Favourite Quote</label>
 								</div>
 
 								<div class="text-center mt-2">
 									<button class="btn btn-info">
-										Log in <i class="fa fa-sign-in ml-1"></i>
+										Update <i class="fa fa-sign-in ml-1"></i>
 									</button>
 								</div>
-							</div>
-						</form>
+							</form>
+						</div>
 						<!--Footer-->
 						<div class="modal-footer">
 

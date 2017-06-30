@@ -22,7 +22,6 @@ import getData.GetConnection;
 @WebServlet("/AddDetail")
 public class AddDetail extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-
 	/**
 	 * @see HttpServlet#HttpServlet()
 	 */
@@ -37,30 +36,33 @@ public class AddDetail extends HttpServlet {
 
 
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		PrintWriter out = response.getWriter();
+		//		PrintWriter out = response.getWriter();
+		String dob = request.getParameter("dob");
+		String college = request.getParameter("college");
 		String furl = request.getParameter("furl");
+		String turl = request.getParameter("turl");
+		String bio = request.getParameter("bio");
 		String quote = request.getParameter("quote");
-	
+		HttpSession s = request.getSession();
+		String currentUser = (String)s.getAttribute("email");
+		System.out.println(currentUser);
+		Connection cn = GetConnection.getCn();
+		try{
 
-		
-			HttpSession s = request.getSession();
-			String currentUser = (String)s.getAttribute("email");
-			
-			System.out.println(currentUser);
-			Connection cn = GetConnection.getCn();
-			try{
-			    
-				String sql = "insert into dashboard(useremail,facebookurl,quote) values(?,?,?)";
-				PreparedStatement ps = cn.prepareStatement(sql);
-				System.out.println("data inserted successfully");
-				ps.setString(1, currentUser);
-				ps.setString(2, furl);
-				ps.setString(3, quote);
-				ps.execute();
-				response.sendRedirect("index.jsp");
-				System.out.println("data inserted successfully");
-				ps.close();	
-
+			String sql = "update dashboard set dob=?, college=?, furl=?, turl=?, bio=?, quote=? where useremail=?";
+			PreparedStatement ps = cn.prepareStatement(sql);
+			System.out.println("data inserted successfully");
+			ps.setString(1, dob);
+			ps.setString(2, college);
+			ps.setString(3, furl);
+			ps.setString(4, turl);
+			ps.setString(5, bio);
+			ps.setString(6, quote);
+			ps.setString(7, currentUser);
+			ps.executeUpdate();
+			response.sendRedirect("index.jsp");
+			System.out.println("data inserted successfully");
+			ps.close();	
 		}
 		catch(Exception e){
 			System.out.println(e);

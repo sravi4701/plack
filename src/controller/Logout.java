@@ -34,9 +34,9 @@ public class Logout extends HttpServlet {
 		session.removeAttribute("name");
 		session.removeAttribute("email");
 
-		   session.invalidate();  
-		   response.sendRedirect("index.jsp");
-		out.println("thanq you!!, Your session was destroyed successfully!!");
+	   session.invalidate();  
+	   response.sendRedirect("index.jsp");
+		//out.println("thanq you!!, Your session was destroyed successfully!!");
 
 }  
 

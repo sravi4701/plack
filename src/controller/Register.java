@@ -45,7 +45,7 @@ public class Register extends HttpServlet {
 		String pass1 = request.getParameter("pass1");
 		String pass2 = request.getParameter("pass2");
 		Connection cn = GetConnection.getCn();
-		
+		boolean x=true;
 		try {
 			String sql = "insert into user values(?,?,?,?)";
 			PreparedStatement  ps = cn.prepareStatement(sql);
@@ -55,16 +55,28 @@ public class Register extends HttpServlet {
 			ps.setString(3, pass1);
 			ps.setLong(4, phone);
 			
-			boolean x = ps.execute();
+			x = ps.execute();
 			System.out.println(x);
-			if(!x){
-				System.out.println("Data Inserted Successfully");
-				
-				response.sendRedirect("Afterregister.jsp");
-			}
+			ps.close();
+			
 		}
 		catch(Exception e){
 			System.out.println(e);
+		}
+		if(!x){
+			try{
+				String sql = "insert into dashboard(useremail) values(?)";
+				PreparedStatement ps = cn.prepareStatement(sql);
+				ps.setString(1, email);
+				boolean y = ps.execute();
+				if(!y){
+					System.out.println("Dashboard Inserted Successfully");
+					response.sendRedirect("Afterregister.jsp");
+				}
+			}
+			catch(Exception e){
+				e.printStackTrace();
+			}
 		}
 	}
     
