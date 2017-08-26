@@ -1,6 +1,8 @@
 
 <%@include file="base.jsp"%>
-
+<head>
+	<title>All Post</title>
+</head>
 <main> <%@page
 	import="javax.servlet.http.*,java.sql.*,getData.GetConnection"%>
 

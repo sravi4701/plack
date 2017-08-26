@@ -1,6 +1,8 @@
 
 <%@include file="base.jsp"%>
-
+<head>
+	<title>Post Something</title>
+</head>
 <main> <%@page
 	import="javax.servlet.http.*,java.sql.*,getData.GetConnection"%>
 
@@ -12,9 +14,9 @@
 	<div class="row wow fadeIn" data-wow-delay="0.2s">
 		<div class="col-md-12">
 			<div class="jumbotron">
-				<h2 class="h2-responsive">Material Design for</h2>
+				<h2 class="h2-responsive">Get Social | A medium to connect people</h2>
 				<br>
-				<p>Powerful and free Material Design UI KIT</p>
+				<p>Something New today | share with your friend.</p>
 				<hr>
 				<form action="Postprocess.jsp" method="POST">
 
@@ -63,9 +65,9 @@
 
 	<%
 		   		while(rs.next()){
-		   			String post = rs.getString(2);
-		   			String username = rs.getString(5);
-		   			String time = rs.getString(3);
+		   			String post = rs.getString(3);
+		   			String username = rs.getString(6);
+		   			String time = rs.getString(4);
 		   			
 		   		%>
 

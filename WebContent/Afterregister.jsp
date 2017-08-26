@@ -1,7 +1,10 @@
 <%@include  file="base.jsp" %>
-
+<head>
+	<title>Please Login</title>
+</head>
 	<main>
 		<div class="container">
+			<p></p>
 			<p></p>
 			<p>
 				Welcome, Please login 

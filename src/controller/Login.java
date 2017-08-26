@@ -39,9 +39,8 @@ public class Login extends HttpServlet {
 		PrintWriter out = response.getWriter();
 		String email = request.getParameter("email");
 		String pass = request.getParameter("pass").trim();
-		System.out.println("getPass " + pass);
 		Connection cn = GetConnection.getCn();
-		
+		HttpSession session = request.getSession();
 		try{
 			String sql = "select * from user where useremail=?";
 			
@@ -50,9 +49,7 @@ public class Login extends HttpServlet {
 			ResultSet rs = ps.executeQuery();
 			if(rs.next()){
 				String passd = rs.getString(3).trim();
-				System.out.println("havePass " + passd);
 				if(pass.equals(passd)){
-					HttpSession session = request.getSession();
 					session.setAttribute("email", rs.getString(1));
 					session.setAttribute("name", rs.getString(2));
 					response.sendRedirect("Profile.jsp");
@@ -62,11 +59,11 @@ public class Login extends HttpServlet {
 				}
 			}
 			else{
-				out.println("no record found");
+				out.println("Login.java : no record found");
 			}
 		}
 		catch(Exception e){
-			System.out.println(e);
+			e.printStackTrace();
 		}
 	}
 

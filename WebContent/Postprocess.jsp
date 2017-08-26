@@ -1,6 +1,8 @@
 
 <%@include file="base.jsp"%>
-
+<head>
+	<title>All Post</title>
+</head>
 <main> <%@page
 	import="javax.servlet.http.*,java.sql.*,getData.GetConnection"%>
 
@@ -13,10 +15,13 @@
 		<div class="col-md-12">
 		
 			<div class="jumbotron">
-				<h2 class="h2-responsive">Material Design for</h2>
+				<h2 class="h2-responsive">Get Social | A medium to connect people</h2>
 				<br>
-				<p>Powerful and free Material Design UI KIT</p>
+				<p>We provide best feature to our user</p>
 				<hr>
+				 <a href="discussion.jsp" class="btn btn-unique btn-ptc"
+					rel="nofollow">Start discussion
+				</a>
 				</div>
 			
 			</div>
@@ -45,9 +50,9 @@
 			PreparedStatement ps1 = cn.prepareStatement(sql1);
 			ResultSet rs1 = ps1.executeQuery();
 			while(rs1.next()){
-			String post1 = rs1.getString(2);
-   			String username = rs1.getString(5);
-   			String time = rs1.getString(3);
+			String post1 = rs1.getString(3);
+   			String username = rs1.getString(6);
+   			String time = rs1.getString(4);
 			
 			%>
 	<!--Main column-->

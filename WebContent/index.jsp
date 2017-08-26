@@ -1,6 +1,6 @@
 
 	<head>
-		<title>index</title>
+		<title>Home</title>
 	</head>
 	
 	<%@include  file="base.jsp" %>
@@ -45,9 +45,9 @@
                         <!--Card content-->
                         <div class="card-block">
                             <!--Title-->
-                            <h4 class="card-title">Card title</h4>
+                            <h4 class="card-title">Social Application</h4>
                             <!--Text-->
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                            <p class="card-text">We at get social provide best feature to our customer and it is only made for education purpose.</p>
                             <a href="#" class="btn btn-info">Read more</a>
                         </div>
                         <!--/.Card content-->
@@ -64,7 +64,7 @@
 
                         <!--Card image-->
                         <div class="view overlay hm-white-slight">
-                            <img src="img/smo.jpg" class="img-fluid" alt="">
+                            <img src="img/smo.jpg" class="img-fluid" alt="" style="height:200px;width:350px;">
                             <a href="#">
                                 <div class="mask"></div>
                             </a>
@@ -74,9 +74,9 @@
                         <!--Card content-->
                         <div class="card-block">
                             <!--Title-->
-                            <h4 class="card-title">Card title</h4>
+                            <h4 class="card-title">Education purpose</h4>
                             <!--Text-->
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                            <p class="card-text">We at get social provide best feature to our customer and it is only made for education purpose</p>
                             <a href="#" class="btn btn-info">Read more</a>
                         </div>
                         <!--/.Card content-->
@@ -103,9 +103,9 @@
                         <!--Card content-->
                         <div class="card-block">
                             <!--Title-->
-                            <h4 class="card-title">Card title</h4>
+                            <h4 class="card-title">Connect with people</h4>
                             <!--Text-->
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                            <p class="card-text">We at get social provide best feature to our customer and it is only made for education purpose</p>
                             <a href="#" class="btn btn-info">Read more</a>
                         </div>
                         <!--/.Card content-->

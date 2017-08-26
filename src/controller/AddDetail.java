@@ -60,8 +60,8 @@ public class AddDetail extends HttpServlet {
 			ps.setString(6, quote);
 			ps.setString(7, currentUser);
 			ps.executeUpdate();
-			response.sendRedirect("index.jsp");
 			System.out.println("data inserted successfully");
+			response.sendRedirect("Profile.jsp");
 			ps.close();	
 		}
 		catch(Exception e){

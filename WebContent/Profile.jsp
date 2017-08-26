@@ -12,14 +12,12 @@
 	<div class="row wow fadeIn" data-wow-delay="0.2s">
 		<div class="col-md-12">
 			<div class="jumbotron">
-				<h2 class="h2-responsive">Material Design for</h2>
+				<h2 class="h2-responsive">Get Social | A medium to connect people</h2>
 				<br>
-				<p>Powerful and free Material Design UI KIT</p>
+				<p>We provide best feature to our user</p>
 				<hr>
-				<p>Register for free and get access to amazing framework and
-					beautiful components</p>
 				<a href="Post.jsp" class="btn btn-mdb btn-stc" rel="nofollow">Post
-					New Update <i class="fa fa-download right"></i>
+					New Update 
 				</a> <a target="_blank" href="" class="btn btn-unique btn-ptc"
 					rel="nofollow" data-toggle="modal" data-target="#modalEDForm">Edit
 					Profile <i class="fa fa-book right"></i>
@@ -37,13 +35,12 @@
 		<div class="col-lg-4">
 			<!--Card-->
 			<div class="view hm-zoom">
-				<img src="img/img.jpg" class="img-fluid " alt="">
+				<img src="UploadPhoto?id=<%=currentUser %>" class="img-fluid" alt="profile">
 				<div class="mask flex-center"></div>
 			</div>
-
+			<a href="Fileupload.jsp">Upload Pic</a>
 		</div>
 		<!--First columnn-->
-
 		<div class="col-lg-8">
 			<!--Card-->
 			<div class="card wow fadeIn" data-wow-delay="0.4s">
@@ -152,8 +149,6 @@ Connection cn = GetConnection.getCn();
 		}
 	%>
 				</div>
-
-				<a href="#" class="btn btn-info">Read more</a>
 			</div>
 			<!--/.Card content-->
 

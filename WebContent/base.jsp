@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>base</title>
+<title></title>
 
 <!-- Font Awesome -->
 <link rel="stylesheet"
@@ -58,13 +58,8 @@ footer.page-footer {
 					aria-label="Toggle navigation">
 					<span class="navbar-toggler-icon"></span>
 				</button>
-				<a class="navbar-brand" href="#"> <strong>AngelGo</strong>
-				</a>
-				<div class="collapse navbar-collapse" id="navbarNav3">
-					<ul class="navbar-nav ml-auto">
-						<li class="nav-item active"><a
-							class="nav-link waves-effect waves-light"><i
-								class="fa fa-envelope"></i> Contact</a></li>
+			
+			
 						<%  HttpSession s = request.getSession();
 						String currentUser = (String)s.getAttribute("email");
 						
@@ -72,31 +67,42 @@ footer.page-footer {
                                   }
                                   else{
                                 	  %>
-
+				<a class="navbar-brand" href="index.jsp"> <strong>Get Social</strong>
+				</a>
+				<div class="collapse navbar-collapse" id="navbarNav3">
+					<ul class="navbar-nav ml-auto">
 						<li class="nav-item"><a
 							class="nav-link waves-effect waves-light" data-toggle="modal"
-							data-target="#modalLRFormDemo"><i class="fa fa-gear"></i>
+							data-target="#modalLRFormDemo">
 								Login</a></li>
 						<li class="nav-item"><a
 							class="nav-link waves-effect waves-light" data-toggle="modal"
-							data-target="#modalLRForm"><i class="fa fa-gear"></i> SignUp</a>
+							data-target="#modalLRForm">SignUp</a>
 						</li>
-						 <li class="nav-item"><a
-               							class="nav-link waves-effect waves-light" ><i class="fa fa-gear"></i>
+						 <li class="nav-item"><a href="Contactus.jsp"
+               							class="nav-link waves-effect waves-light" >
                								Contact Us</a></li>
 						<% } %>
-						<%     if(currentUser != null && !currentUser.equals("")){%>
+						<%     
+											if(currentUser != null && !currentUser.equals("")){%>
+											<a class="navbar-brand" href="Postprocess.jsp"> <strong>Get Social</strong>
+						</a>
+						<div class="collapse navbar-collapse" id="navbarNav3">
+							<ul class="navbar-nav ml-auto">
+	
                             	   <li class="nav-item"><a href="Postprocess.jsp"
-               							class="nav-link waves-effect waves-light" ><i class="fa fa-gear"></i>
-               								Home</a></li>
+               							class="nav-link waves-effect waves-light" >
+               								NewsFeed</a></li>
+               								<li class="nav-item"><a href="Post.jsp"
+               							class="nav-link waves-effect waves-light" >
+               								Timeline</a></li>
                								 <li class="nav-item"><a href="Profile.jsp" 
-               							class="nav-link waves-effect waves-light" ><i class="fa fa-gear"></i>
-               								profile</a></li>
+               							class="nav-link waves-effect waves-light" >
+               								Profile</a></li>
  <li class="nav-item"><a
-							class="nav-link waves-effect waves-light" href="Logout"><i
-								class="fa fa-gear"></i> Logout</a></li>
-								<li class="nav-item"><a
-               							class="nav-link waves-effect waves-light" ><i class="fa fa-gear"></i>
+							class="nav-link waves-effect waves-light" href="Logout"> Logout</a></li>
+								<li class="nav-item"><a href="Contactuu.jsp"
+               							class="nav-link waves-effect waves-light" >
                								Help</a></li>
 						<% } %>
 					</ul>
@@ -271,10 +277,7 @@ footer.page-footer {
 							</div>
 						</div>
 						<!--/.Panel 8-->
-
 					</div>
-
-
 				</div>
 
 			</div>
